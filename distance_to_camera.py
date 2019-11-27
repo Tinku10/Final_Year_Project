@@ -2,10 +2,12 @@ from imutils import paths
 import numpy as np
 import imutils
 import cv2
+#import ultrasonic library
 
+#distance = ultrasonic()
 
 def find_marker(image):
-	# convert the image to grayscale, blur it, and detect edges
+    	# convert the image to grayscale, blur it, and detect edges
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	gray = cv2.GaussianBlur(gray, (5, 5), 0)
 	edged = cv2.Canny(gray, 30, 125)
@@ -40,11 +42,11 @@ def xdimension(distance_to_camera, focalLength, perWidth):
 #Find distance from camera to object using Python and OpenCVPython
 # initialize the known distance from the camera to the object, which
 # in cms
-KNOWN_DISTANCE = 60
+KNOWN_DISTANCE = # ultrasonic distance
 
 # initialize the known object width, which in this case, the piece of
 # paper in cms
-KNOWN_WIDTH = 60
+KNOWN_WIDTH = xdimension()
 
 path = 'd:\Personal Files\Project_Final\images\\img1.jpg'
 image = cv2.imread(path)
