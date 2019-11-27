@@ -1,0 +1,12 @@
+This project deals with making a system which possesses the awareness of its surrounding. Using this concept a robot is built 
+which, no matter where it is currently, always goes back to its home position for the proceedings of instructions given by the master.
+
+If a robot is in the wrong position at the start of a sequence of instructions, it is guranteed that it will do everything wrong. To initialize
+a process, homing can therefore be a precursor.
+
+At the initial stage our goal is to find the image distance using a camera. This will help the robot to take proper judgement and proceed
+towards home. This measurement needs to be followed by obstacle avoidance for which the measurement of the object's dimension is necessary.
+Also the obstacle can be either static type or dynamic, which needs to be taken care of.
+
+We believe that this approach is novel and crucial for every automation system, hence, through this model we will try to improve upon the technique
+and its efficiency.
