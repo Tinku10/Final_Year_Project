@@ -39,23 +39,14 @@ def xdimension(distance_to_camera, focalLength, perWidth):
     return distance_to_camera*perWidth/focalLength
 
 
-# Find distance from camera to object using Python and OpenCVPython
-# initialize the known distance from the camera to the object, which
-# in cms
-DISTANCE = distance_to_camera
-
-# initialize the known object width, which in this case, the piece of
-# paper in cms
-WIDTH = xdimension(DISTANCE, focalLength, marker[1][0])
-
 path = 'd:\Personal Files\Project_Final\images\\img1.jpg'
 image = cv2.imread(path)
-cv2.namedWindow('img', cv2.WINDOW_AUTOSIZE)
-
-
-cv2.imshow('img', image)
+#cv2.namedWindow('img', cv2.WINDOW_AUTOSIZE)
+#cv2.imshow('img', image)
 marker = find_marker(image)
-focalLength = (marker[1][0] * KNOWN_DISTANCE) / KNOWN_WIDTH
+
+# Method to calculate the focal length without displaying the image
+focalLength = (marker[1][0] * DISTANCE) / WIDTH
 
 
 # loop over the images
@@ -66,6 +57,8 @@ for imagePath in sorted(paths.list_images("d:\Personal Files\Project_Final\\imag
     marker = find_marker(image)
     #cms = distance_to_camera(KNOWN_WIDTH, focalLength, marker[1][0])
 
+    DISTANCE = distance_to_camera
+    WIDTH = xdimension(DISTANCE, focalLength, marker[1][0])
     # draw a bounding box around the image and display it
     box = cv2.cv.BoxPoints(
         marker) if imutils.is_cv2() else cv2.boxPoints(marker)
